@@ -8,6 +8,25 @@ This repository is dedicated to the development and storage of reusable librarie
 - **Performance-Oriented**: Written in x86 assembly for maximum performance and control over hardware.
 - **NASM-Compatible**: All code is designed to be assembled with NASM.
 
+## Requirements
+
+- **Assembler**: NASM (Netwide Assembler)
+- **Environment**: x86 architecture with access to video memory (e.g., DOSBox or a similar emulator for testing).
+
+## How to Use
+
+### 1. Clone the repository within your directory
+
+```bash
+git clone https://github.com/your-username/x86-assembly-libraries.git
+```
+
+### 2. Include the library within your files
+    
+```asm
+%include "Graphics/viewport.asm"
+```
+
 ## Current Libraries
 
 ### `viewport.asm`
@@ -40,25 +59,3 @@ The macros are designed to deal with video memory of the `INT 13h - AH = 13h`. T
    - **Arguments**:
      1. Address where the position of the allocated block is stored.
      2. Screen's size in bytes (e.g., `SCREEN_HEIGHT * SCREEN_WIDTH`).
-
-#### Example Usage
-
-The macros in `viewport.asm` can be used to create, manage, and display a graphical viewport in memory. They interact directly with video memory and are optimized for performance.
-
-## Requirements
-
-- **Assembler**: NASM (Netwide Assembler)
-- **Environment**: x86 architecture with access to video memory (e.g., DOSBox or a similar emulator for testing).
-
-## How to Use
-
-1. Clone the repository within your directory:
-   ```bash
-   git clone https://github.com/your-username/x86-assembly-libraries.git
-   ```
-
-2. Include the library within your files:
-    ```asm
-    %include "Graphics/viewport.asm"
-    ```
-
