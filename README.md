@@ -18,7 +18,7 @@ This repository is dedicated to the development and storage of reusable librarie
 ### 1. Clone the repository within your directory
 
 ```bash
-git clone https://github.com/your-username/x86-assembly-libraries.git
+git clone https://github.com/Woopsie-Creations/x86-nasm-libraries.git
 ```
 
 ### 2. Include the library within your files
@@ -26,6 +26,8 @@ git clone https://github.com/your-username/x86-assembly-libraries.git
 ```asm
 %include "Graphics/viewport.asm"
 ```
+
+---
 
 ## Current Libraries
 
