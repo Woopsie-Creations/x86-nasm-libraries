@@ -2,12 +2,19 @@
 
 %macro initViewport 3
     ; Initializes the viewport by allocating a memory block.
-    ; arg1: nb of 16 bytes sections we want to allocate.
+    ; arg1: resolution's size in bytes (e.g: SCREEN_HEIGHT * SCREEN_WIDTH).
     ; arg2: address to store the position of the allocated block.
     ; arg3: label to jump to if failed to allocate.
 
-    mov bx, %1
+    ; calculates the number of 16 bytes chunks we need
+    mov ax, %1
+    mov bx, 16
+    xor dx, dx
+    div bx
+    
+    mov bx, ax
     ; interrupt
+    xor ax, ax
     mov ah, 48h
     int 21h
     ; if failed to allocate, exit
