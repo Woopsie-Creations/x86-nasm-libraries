@@ -71,3 +71,4 @@ The macros are designed to deal with video memory of the `INT 13h - AH = 13h`. T
    - **Arguments**:
      1. Address where the position of the allocated block is stored.
      2. Screen's size in bytes (e.g., `SCREEN_HEIGHT * SCREEN_WIDTH`).
+   - **Usage**: `displayViewport viewport_allocated_block_pos, 320*200`
