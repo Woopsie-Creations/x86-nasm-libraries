@@ -41,20 +41,30 @@ The macros are designed to deal with video memory of the `INT 13h - AH = 13h`. T
 1. **`initViewport`**
    - Initializes the viewport by allocating a memory block.
    - **Arguments**:
-     1. Number of 16-byte sections to allocate.
+     1. Resolution's size in bytes (e.g: 320 * 200 is the default resolution size of DOSBox).
      2. Address to store the position of the allocated block.
      3. Label to jump to if memory allocation fails.
+   - **Usage**: `initViewport 320*200, viewport_allocated_block_pos, AllocationFailed`
+     - `viewport_allocated_block_pos` is a *word*
+     - `AllocationFailed` is a *label*
 
-2. **`deallocationViewport`**
+---
+
+1. **`deallocationViewport`**
    - Deallocates the memory block used for the viewport.
    - **Arguments**:
      1. Address where the position of the allocated block is stored.
      2. Label to jump to if memory deallocation fails.
+   - **Usage**: `deallocationViewport viewport_allocated_block_pos, DeallocationFailed`
+
+---
 
 3. **`displayPixelBlock`** *can be used, but not necessary for a viewport use*
    - Displays a block of the viewport on the screen.
    - **Arguments**:
      1. Address where the position of the allocated block is stored.
+
+---
 
 4. **`displayViewport`**
    - Displays the entire viewport on the screen by splitting the task into multiple blocks.
