@@ -50,16 +50,18 @@ The macros are designed to deal with video memory of the `INT 13h - AH = 13h`. T
 
 ---
 
-1. **`deallocationViewport`**
+2. **`deallocationViewport`**
    - Deallocates the memory block used for the viewport.
    - **Arguments**:
      1. Address where the position of the allocated block is stored.
      2. Label to jump to if memory deallocation fails.
    - **Usage**: `deallocationViewport viewport_allocated_block_pos, DeallocationFailed`
+     - `viewport_allocated_block_pos` is a *word*
+     - `DeallocationFailed` is a *label*
 
 ---
 
-3. **`displayPixelBlock`** *can be used, but not necessary for a viewport use*
+3. **`displayPixelBlock`** -- *can be used, but not necessary for a viewport use*
    - Displays a block of the viewport on the screen.
    - **Arguments**:
      1. Address where the position of the allocated block is stored.
@@ -72,3 +74,16 @@ The macros are designed to deal with video memory of the `INT 13h - AH = 13h`. T
      1. Address where the position of the allocated block is stored.
      2. Screen's size in bytes (e.g., `SCREEN_HEIGHT * SCREEN_WIDTH`).
    - **Usage**: `displayViewport viewport_allocated_block_pos, 320*200`
+     - `viewport_allocated_block_pos` is a *word*
+
+---
+
+5. **`clearViewport`**
+   - Clears the viewport by setting all pixels to a color.
+   - **Arguments**:
+     1. Address where the position of the allocated block is stored.
+     2. Color's hexadecimal code.
+     3. Screen's size in bytes (e.g: `SCREEN_HEIGHT * SCREEN_WIDTH`).
+   - **Usage**: `clearViewport viewport_allocated_block_pos, 0x00, 320*200`
+     - `viewport_allocated_block_pos` is a *word*
+     - `0x00` is *black*
